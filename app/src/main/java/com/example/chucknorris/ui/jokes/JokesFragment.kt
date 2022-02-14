@@ -18,10 +18,6 @@ class JokesFragment : Fragment(R.layout.fragment_jokes) {
     private lateinit var mAdapter: JokesAdapter
     private lateinit var mRecyclerView: RecyclerView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,16 +28,22 @@ class JokesFragment : Fragment(R.layout.fragment_jokes) {
     }
 
     private fun reloadJokes() {
-        if(!viewModel.count.equals("0")) {
+        if(!viewModel.currencyList.value.isNullOrEmpty()) {
             backgroundStars.gone()
             recycler_view.visible()
-            viewModel.getCurrency(viewModel.count.toString())
+            mAdapter.setList(viewModel.currencyList.value)
         }
-        else {
+        else{
             recycler_view.gone()
             backgroundStars.visible()
             mAdapter.setList(emptyList())
         }
+    }
+
+    private fun loadJoke(){
+            backgroundStars.gone()
+            recycler_view.visible()
+            viewModel.getCurrency(countJokes.text.toString())
     }
 
     private fun setupRv() {
@@ -61,8 +63,7 @@ class JokesFragment : Fragment(R.layout.fragment_jokes) {
 
     private fun setupClickListeners(){
         reloadButton.setOnClickListener {
-            viewModel.count = countJokes.text.toString()
-            reloadJokes()
+            loadJoke()
         }
     }
 
