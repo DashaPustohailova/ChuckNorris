@@ -1,7 +1,6 @@
 package com.example.chucknorris.ui.jokes
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +9,6 @@ import com.example.chucknorris.enviroment.extention.gone
 import com.example.chucknorris.enviroment.extention.observe
 import com.example.chucknorris.enviroment.extention.visible
 import com.example.chucknorris.model.server_model.JokesResponse
-import com.example.chucknorris.ui.web.WebViewModel
 import kotlinx.android.synthetic.main.fragment_jokes.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
