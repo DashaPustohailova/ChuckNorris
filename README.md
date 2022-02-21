@@ -16,5 +16,5 @@
 4 Retrofit  
 5 Coroutine  
 6 LiveData  
-7 Navigation component
+7 Navigation component  
 8 Crashlytics
